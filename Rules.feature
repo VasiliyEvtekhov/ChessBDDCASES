@@ -39,7 +39,7 @@ Scenario: user starts a new game with computer
 | Pawn	         | Black	      | G7                            |
 | Pawn	         | Black	      | H7                            |
 
-Scenario Outline: user cannot move opponents figure
+Scenario Outline: user cannot move opponents figure in his turn
     Given <color> user turn
     When <color> user moves <opponents color> "<position>" figure to "<end position>"
     Then <opponents color> "<position>" figure should not be shifted
@@ -50,6 +50,20 @@ Examples:
     | color | opponents color | position | end position |
     | White | Black           | E7       | E6           |
     | Black | White           | E2       | E3           |
+
+Scenario Outline: user cannot move opponents figure in opponents turn
+    Given <opponents color> user turn
+    When <color> user moves <opponents color> "<position>" knight to "<end position>"
+    Then <opponents color> "<position>" knight should not be shifted
+    And "<position>" cell should contain <opponent color> "<position>" knight
+    And Appears notification «Wrong turn»
+
+Examples:
+    | opponents color | color | position | end position |
+    | Black           | White | G8       | H6           |
+    | Black           | White | G8       | F6           |
+    | White           | Black | B1       | C3           |
+    | White           | Black | B1       | A3           |
 
 Scenario Outline: user cannot move figures in opponents turn
     Given <opponents color> user turn
