@@ -1,5 +1,4 @@
-#ROOK MOVES
-
+Feature: rook moves
 
 Scenario Outline: standard rook move
     Given <color> rook is located on "E5"
@@ -7,7 +6,6 @@ Scenario Outline: standard rook move
     When <color> user moves <color> "E5" rook to "<end position>" 
     Then <color> "E5" rook should be located on "<end position>"
     And "E5" cell should be empty
-
 
 Examples:
 | color | end position|
@@ -36,7 +34,6 @@ Examples:
 | Black | E7          |
 | Black | E3          |
 
-
 Scenario Outline: rooks attack                               
     Given <color> rook is located on "E5"
     And <opponent color> pawn is located on "A5"
@@ -46,12 +43,10 @@ Scenario Outline: rooks attack
     And <opponent color> "A5" pawn should be not visible
     And "E5" cell should be empty
 
-
 Examples:
 | color | opponent color |
 | White | Black          |
 | Black | White          |
-
 
 Scenario Outline: rook can not move diagonale
     Given <color> rook is located on "D5"
@@ -61,12 +56,10 @@ Scenario Outline: rook can not move diagonale
     And "D5" cell should contain <color> "D5" rook
     And Appears notification «Wrong turn»
 
-
 Examples:
 | color | end position |
 | White | E4           |
 | Black | E6           |
-
 
 Scenario Outline: rook can not move through figure with the same color
     Given <color> rook is located on "E4"
@@ -76,7 +69,6 @@ Scenario Outline: rook can not move through figure with the same color
     Then <color> rook should not be located on "<end position>"
     And "E4" cell should contain <color> "E4" rook
     And Appears notification «Wrong turn»
-
 
 Examples:
 | color | end position |
