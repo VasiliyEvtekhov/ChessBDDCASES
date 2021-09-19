@@ -40,7 +40,7 @@ Scenario: user starts a new game with computer
 | Pawn	         | Black	      | H7                            |
 
 Scenario Outline: user can not move opponents figure
-    Given <color> users turn
+    Given <color> user turn
     When <color> user moves <opponents color> "<position>" figure to "<end position>"
     Then <opponents color> "<position>" figure should not be shifted
     And "<position>" cell should contain <opponent color> "<position>" figure
@@ -52,7 +52,7 @@ Examples:
     | Black | White           | E2       | E3           |
 
 Scenario Outline: user can not move figures in opponents turn
-    Given <opponents color> users turn
+    Given <opponents color> user turn
     When <color> user moves <color> "<position>" pawn to "<end position>"
     Then <color> "<position>" pawn should not be shifted
     And "<position>" cell should contain <color> "<position>" pawn
@@ -64,7 +64,7 @@ Examples:
     | Black           | White | G2       | G3           |
 
 Scenario Outline: move transition
-    Given <color> users turn 
+    Given <color> user turn 
     When <color> user makes a move
     Then move is passed to <opponent color> user
 
@@ -74,7 +74,7 @@ Examples:
     | Black | White          |
 
 Scenario Outline: pawn reaches edge of a desk
-    Given <color> users turn
+    Given <color> user turn
     When <color> user makes a <color> "<position>" pawn move to "<end position>"
     Then <color> "<position>" pawn should not be located on "<end position>"
     And <color> "<position>" pawn should be not visible
