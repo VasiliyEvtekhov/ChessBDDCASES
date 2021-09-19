@@ -100,7 +100,7 @@ Examples:
     | Black | G2       | G1           |
     | Black | H2       | H1           |
 
-Scenario Outline attack on king
+Scenario Outline: attack on king
     Given <color> king is located on "<position>"
     And <opponent color> rook is located on "<position 2>"
     And <opponent color> turn
