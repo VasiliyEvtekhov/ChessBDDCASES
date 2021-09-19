@@ -62,18 +62,32 @@ Examples:
     | Black | White          | C5       | C7              |
     | Black | White          | C5       | F5              |
    
-Scenario Outline: rook cannot move diagonale
-    Given <color> rook is located on "D5"
+Scenario Outline: rook cannot move in incorret directions
+    Given <color> rook is located on "<position>"
     And <color> user turn
-    When <color> user moves <color> "D5" rook to "<end position>" 
-    Then <color> "D5" rook should not be located on "<end position>"
-    And "D5" cell should contain <color> "D5" rook
+    When <color> user moves <color> "<position>" rook to "<end position>" 
+    Then <color> "<position>" rook should not be located on "<end position>"
+    And "<position>" cell should contain <color> "<position>" rook
     And Appears notification «Wrong turn»
 
 Examples:
-    | color | end position |
-    | White | E4           |
-    | Black | E6           |
+    | color | position |end position |
+    | White | E4       | F5          |
+    | White | E4       | F3          |
+    | White | E4       | D3          |
+    | White | E4       | D5          |
+    | White | E4       | H7          |
+    | White | E4       | H1          |
+    | White | E4       | B1          |
+    | White | E4       | A8          |
+    | Black | E5       | F6          |
+    | Black | E5       | F4          |
+    | Black | E5       | D4          |
+    | Black | E5       | D6          |
+    | Black | E5       | H8          |
+    | Black | E5       | H2          |
+    | Black | E5       | A1          |
+    | Black | E5       | B8          |
 
 Scenario Outline: rook cannot move through figure with the same color
     Given <color> rook is located on "E4"
