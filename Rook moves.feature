@@ -35,19 +35,33 @@ Examples:
     | Black | E3          |
 
 Scenario Outline: rooks attack                               
-    Given <color> rook is located on "E5"
-    And <opponent color> pawn is located on "A5"
+    Given <color> rook is located on "<position>"
+    And <opponent color> pawn is located on "<attack position>"
     And <color> user turn
-    When <color> user moves <color> "E5" rook to "A5"
-    Then <color> "E5" rook should be located on "A5"
-    And <opponent color> "A5" pawn should be not visible
-    And "E5" cell should be empty
+    When <color> user moves <color> "<position>" rook to "<attack position>"
+    Then <color> "<position>" rook should be located on "<attack position>"
+    And <opponent color> "<attack position>" pawn should be not visible
+    And "<position>" cell should be empty
 
 Examples:
-    | color | opponent color |
-    | White | Black          |
-    | Black | White          |
-
+    | color | opponent color | position | attack position |      
+    | White | Black          | F4       | F5              |
+    | White | Black          | F4       | F3              |
+    | White | Black          | F4       | E4              |
+    | White | Black          | F4       | G4              |
+    | White | Black          | F4       | C4              |
+    | White | Black          | F4       | F7              |
+    | White | Black          | F4       | F2              |
+    | White | Black          | F4       | H4              |
+    | Black | White          | C5       | C6              |
+    | Black | White          | C5       | D5              |
+    | Black | White          | C5       | C4              |
+    | Black | White          | C5       | B5              |
+    | Black | White          | C5       | A5              |
+    | Black | White          | C5       | C1              |
+    | Black | White          | C5       | C7              |
+    | Black | White          | C5       | F5              |
+   
 Scenario Outline: rook cannot move diagonale
     Given <color> rook is located on "D5"
     And <color> user turn
