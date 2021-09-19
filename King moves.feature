@@ -93,9 +93,9 @@ Scenario Outline: castle move
     And <color> rook is located on "<position>"
     And between <color> "<start position>" king and <color> "<position>" rook there are no other figures
     And <color> user turn
-    When <color> user moves <color> "<start position>" king to "<end position>"
+    When <color> user initiate a castle move
     Then <color> "<start position>" king should be located on "<end position>"
-    And <color> <position> rook should be located on "<position 2>"
+    And <color> "<position>" rook should be located on "<position 2>"
     And "<start position>" cell should not contain <color> "<start position>" king
     And "<position>" cell should not contain <color> "<position>" rook
 
