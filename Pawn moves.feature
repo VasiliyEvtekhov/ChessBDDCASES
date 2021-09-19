@@ -38,18 +38,30 @@ Examples:
     | Black | White          | E5      | D4              |
     | Black | White          | E5      | F4              |
 
-Scenario Outline: pawn cannot move backwards
-    Given <color> pawn is located on "D4"
+Scenario Outline: pawn cannot move in incorret directions
+    Given <color> pawn is located on "<position>"
     And <color> user turn
-    When <color> user moves "D4" <color> pawn to "<position>" 
-    Then cell with "<position>" should be empty
-    And "D4" cell should contain <color> "D4" pawn
+    When <color> user moves "<position>" <color> pawn to "<end position>" 
+    Then "<position>" <color> pawn should not be located on "<end position>"
+    And "<position>" cell should contain <color> "<position>" pawn
     And Appears notification «Wrong turn»
 
 Examples:
-    | color | position |
-    | White | D3       |
-    | Black | D5       |
+    | color | position | end position |
+    | White | D3       | C4           |
+    | White | D3       | E4           |
+    | White | D3       | E3           |
+    | White | D3       | E2           |
+    | White | D3       | D2           |
+    | White | D3       | C2           |
+    | White | D3       | C3           |
+    | Black | D5       | C6           |
+    | Black | D5       | D6           |
+    | Black | D5       | E6           |
+    | Black | D5       | E5           |
+    | Black | D5       | E4           |
+    | Black | D5       | C4           |
+    | Black | D5       | C5           |
 
 Scenario Outline: pawn cannot do extended move if there is in front another figure
     Given <color> pawn is located on "<start position>"
