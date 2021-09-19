@@ -8,27 +8,27 @@ Scenario Outline: standard bishop move
     And "<position>" cell should be empty
 
 Examples:
-| color | position | end position |
-| White | F4       | B8           |
-| White | F4       | H6           |
-| White | F4       | H2           |
-| White | F4       | C1           |
-| White | F4       | G5           |
-| White | F4       | G3           |
-| White | F4       | E3           |
-| White | F4       | E5           |
-| White | F4       | D6           |
-| White | F4       | D2           |
-| Black | E6       | G8           |
-| Black | E6       | F7           |
-| Black | E6       | C8           |
-| Black | E6       | D7           |
-| Black | E6       | A2           |
-| Black | E6       | C4           |
-| Black | E6       | D5           |
-| Black | E6       | H3           |
-| Black | E6       | G4           |
-| Black | E6       | F5           |
+    | color | position | end position |
+    | White | F4       | B8           |
+    | White | F4       | H6           |
+    | White | F4       | H2           |
+    | White | F4       | C1           |
+    | White | F4       | G5           |
+    | White | F4       | G3           |
+    | White | F4       | E3           |
+    | White | F4       | E5           |
+    | White | F4       | D6           |
+    | White | F4       | D2           |
+    | Black | E6       | G8           |
+    | Black | E6       | F7           |
+    | Black | E6       | C8           |
+    | Black | E6       | D7           |
+    | Black | E6       | A2           |
+    | Black | E6       | C4           |
+    | Black | E6       | D5           |
+    | Black | E6       | H3           |
+    | Black | E6       | G4           |
+    | Black | E6       | F5           |
 
 Scenario Outline: bishops attack
     Given <color> bishop is located on "E4"
@@ -40,9 +40,9 @@ Scenario Outline: bishops attack
     And "E4" cell should be empty
 
 Examples:
-| color | opponent color |        
-| White | Black          |
-| Black | White          |
+    | color | opponent color |        
+    | White | Black          |
+    | Black | White          |
 
 Scenario Outline: bishop can not move backwards
     Given <color> bishop is located on "D5"
@@ -53,9 +53,9 @@ Scenario Outline: bishop can not move backwards
     And Appears notification «Wrong turn»
 
 Examples:
-| color | end position |
-| White | D4           |
-| Black | D7           |
+    | color | end position |
+    | White | D4           |
+    | Black | D7           |
 
 Scenario Outline: bishop can not move through figure with the same color
     Given <color> bishop is located on "<position>"
@@ -67,8 +67,8 @@ Scenario Outline: bishop can not move through figure with the same color
     And Appears notification «Wrong turn»
 
 Examples:
-| color | position | position 2 | end position |
-| White | F4       | E3         | D2           |
-| White | F4       | E3         | C1           |
-| Black | F5       | E6         | D7           |
-| Black | F5       | E6         | C8           |
+    | color | position | position 2 | end position |
+    | White | F4       | E3         | D2           |
+    | White | F4       | E3         | C1           |
+    | Black | F5       | E6         | D7           |
+    | Black | F5       | E6         | C8           |
