@@ -1,5 +1,4 @@
-#KING MOVES
- 
+Feature: king moves
 
 Scenario Outline: standard king move
     Given <color> king is located on "D4"
@@ -7,7 +6,6 @@ Scenario Outline: standard king move
     When <color> user moves <color> "D4" king to "<end position>" 
     Then <color> king should be located on "<end position>"
     And "D4" cell should be empty
-
 
 Examples: 
 | color | end position |
@@ -28,7 +26,6 @@ Examples:
 | Black | C5           |
 | Black | E4           |
 
-
 Scenario Outline: kings attack
     Given <color> king is located on "<start position>"
     And <opponent color> pawn is located on "<position>"
@@ -38,12 +35,10 @@ Scenario Outline: kings attack
     And <opponent color> "<position>" pawn should be not visible
     And "<start position>" cell should be empty
 
-
 Examples:
 | color | opponent color | start position | position |
 | White | Black          | E1             | E2       |
 | Black | White          | E8             | E7       | 
-
 
 Scenario Outline: king can not move on to holden position
     Given <color> king is located on "<start position>"
@@ -54,12 +49,10 @@ Scenario Outline: king can not move on to holden position
     And "<start position>" cell should contain <color> "<start position>" king
     And Appears notification «Wrong turn»
 
-
 Examples: 
 | color | start position | position     |
 | White | E1             | D1           |
 | Black | E8             | D8           |
-
 
 Scenario Outline: king can not attacks figure with the same color
     Given <color> king is located on "<start position>"
@@ -71,12 +64,10 @@ Scenario Outline: king can not attacks figure with the same color
     And "<start position>" cell should contain <color> "<start position>" king
     And Appears notification «Wrong turn»
 
-
 Examples:
 | color | start position | position |
 | White | E1             | E2       |
 | Black | E8             | E7       |
-
 
 Scenario Outline: castle move
     Given <color> king is located on "<start position>"
@@ -88,7 +79,6 @@ Scenario Outline: castle move
     And <color> <position> rook should be located on "<position 2>"
     And "<start position>" cell should not contain <color> "<start position>" king
     And "<position>" cell should not contain <color> "<position>" rook
-
 
 Examples:
 | color | start position | position | end position | position 2 |
