@@ -138,7 +138,6 @@ Examples:
     | Black | E6             | A2           |
     | Black | E6             | A6           |
 
-
 Scenario Outline: queen cannot move in incorret directions
     Given <color> queen is located on "<position>"
     And <color> user turn
