@@ -1,5 +1,4 @@
-#BISHOP MOVES
-
+Feature: bishop moves
 
 Scenario Outline: standard bishop move
     Given <color> bishop is located on "<position>"
@@ -8,8 +7,7 @@ Scenario Outline: standard bishop move
     Then <color> "<position>" bishop should be located on "<end position>"
     And "<position>" cell should be empty
 
-
-    Examples:
+Examples:
 | color | position | end position |
 | White | F4       | B8           |
 | White | F4       | H6           |
@@ -32,7 +30,6 @@ Scenario Outline: standard bishop move
 | Black | E6       | G4           |
 | Black | E6       | F5           |
 
-
 Scenario Outline: bishops attack
     Given <color> bishop is located on "E4"
     And <opponent color> pawn is located on "D5"
@@ -42,12 +39,10 @@ Scenario Outline: bishops attack
     And <opponent color> "D5" pawn should be not visible
     And "E4" cell should be empty
 
-
 Examples:
 | color | opponent color |        
 | White | Black          |
 | Black | White          |
-
 
 Scenario Outline: bishop can not move backwards
     Given <color> bishop is located on "D5"
@@ -57,12 +52,10 @@ Scenario Outline: bishop can not move backwards
     And "D5" cell should contain <color> "D5" bishop
     And Appears notification «Wrong turn»
 
-
 Examples:
 | color | end position |
 | White | D4           |
 | Black | D7           |
-
 
 Scenario Outline: bishop can not move through figure with the same color
     Given <color> bishop is located on "<position>"
@@ -72,7 +65,6 @@ Scenario Outline: bishop can not move through figure with the same color
     Then <color> bishop should not be located on "<end position>"
     And "<position>" cell should contain <color> "<position>" bishop
     And Appears notification «Wrong turn»
-
 
 Examples:
 | color | position | position 2 | end position |
