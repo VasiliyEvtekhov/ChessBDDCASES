@@ -2,7 +2,7 @@ Feature: king moves
 
 Scenario Outline: standard king move
     Given <color> king is located on "D4"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves <color> "D4" king to "<end position>" 
     Then <color> king should be located on "<end position>"
     And "D4" cell should be empty
@@ -29,7 +29,7 @@ Examples:
 Scenario Outline: kings attack
     Given <color> king is located on "<start position>"
     And <opponent color> pawn is located on "<position>"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves <color> "<start position>" king to "<position>" 
     Then <color> king should be located on "<position>"
     And <opponent color> "<position>" pawn should be not visible
@@ -43,7 +43,7 @@ Examples:
 Scenario Outline: king can not move on to holden position
     Given <color> king is located on "<start position>"
     And <color> queen is located on "<position>"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves <color> "<start position>" king to "<position>" 
     Then <color> "<start position>" king should not be located on "<position>"
     And "<start position>" cell should contain <color> "<start position>" king
@@ -57,7 +57,7 @@ Examples:
 Scenario Outline: king can not attacks figure with the same color
     Given <color> king is located on "<start position>"
     And <color> pawn is located on "<position>"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves "<start position>" <color> king to "<position>"
     Then "<start position>" <color> king should not be located on "<position>" 
     And <color> "<position>" pawn should be visible
@@ -73,7 +73,7 @@ Scenario Outline: castle move
     Given <color> king is located on "<start position>"
     And <color> rook is located on "<position>"
     And between <color> "<start position>" king and <color> "<position>" rook there are no other figures
-    And <color> users turn
+    And <color> user turn
     When <color> user moves <color> "<start position>" king to "<end position>"
     Then <color> "<start position>" king should be located on "<end position>"
     And <color> <position> rook should be located on "<position 2>"
