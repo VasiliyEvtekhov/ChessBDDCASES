@@ -67,7 +67,7 @@ Examples:
     | White | D4           |
     | Black | D6           |
 
-Scenario Outline: knight cannot move on holden position
+Scenario Outline: knight cannot attack same color
     Given <color> knight is located on "<position>"
     And <color> pawn is located on "<end position>"
     And <color> user turn
