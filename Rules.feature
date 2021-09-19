@@ -121,7 +121,7 @@ Scenario Outline: attack on king
     And <opponent color> rook is located on "<position 2>"
     And <opponent color> turn
     When <opponent color> moves <opponent color> "<position 2>" rook to "<end position>"
-    Then <opponent color>"<position 2>" should be located on "<end position>" cell
+    Then <opponent color>"<position 2>" should be located on "<end position>"
     And "<end position>" cell should contain <opponent color> "<position 2>" rook
     And "<position 2>" cell should be empty
     And appears notification "Check"
@@ -130,3 +130,19 @@ Examples:
     | color | opponent color | position | position 2 | end posiiton |
     | White | Black          | E3       | G6         | E6           |
     | Black | White          | F7       | G3         | F3           |
+
+Scenario Outline: checkmate
+    Given <color> king is located on "<position>"
+    And <opponent color> rook is located on "<position 2>"
+    And <opponent color> queen is located on "<position 3>"
+    And <opponent color> user turn
+    When <opponent color> moves <opponent color> "<position 2>" rook to "<end position>"
+    Then <opponent color>"<position 2>" rook should be located on "<end position>"
+    And "<position 2>" cell should be empty
+    And appears pop-up window for both users "Checkmate"
+    And move is should not transit to <color> user
+
+Examples:
+    | color | opponent color | position | position 2 | position 3 | end posiiton |
+    | White | Black          | H3       | B5         | G6         | H5           |
+    | Black | White          | A8       | E1         | H7         | E8           |
