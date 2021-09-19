@@ -2,7 +2,7 @@ Feature: knights moves
 
 Scenario Outline: standard knight move
     Given <color> knight is located on "E4"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves <color> "E4" knight to "<end position>"
     Then <color> > "E4" knight should be located on "<end position>"
     And "E4" cell should be empty
@@ -29,7 +29,7 @@ Examples:
 Scenario Outline: knights attack
     Given <color> knight is located on "E4"
     And <opponent color> pawn is located on "F6"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves <color> "E4" knight to "F6"
     Then <color> "E4" knight should be located on "F6"
     And <opponent color> "F6" pawn should be not visible
@@ -42,7 +42,7 @@ Examples:
 
 Scenario Outline: knight can not move backwards
     Given <color> knight is located on "D5"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves <color> "D5" knight to "<end position>" 
     Then <color> "D5" knight should not be located on "<end position>"
     And "D5" cell should contain <color> "D5" knight
@@ -56,7 +56,7 @@ Examples:
 Scenario Outline: knight can not move on holden position
     Given <color> knight is located on "<position>"
     And <color> pawn is located on "<end position>"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves <color> "<position>" knight to "<end position>" 
     Then <color> "<position>" knight should not be located on "<end position>"
     And "<position>" cell should contain <color> "<position>" knight
