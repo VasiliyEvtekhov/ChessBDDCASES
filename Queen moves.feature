@@ -137,3 +137,31 @@ Examples:
     | Black | E6             | E1           |
     | Black | E6             | A2           |
     | Black | E6             | A6           |
+
+
+Scenario Outline: queen cannot move in incorret directions
+    Given <color> queen is located on "<position>"
+    And <color> user turn
+    When <color> user moves <color> "<position>" queen to "<end position>" 
+    Then <color> "<position>" queen should not be located on "<end position>"
+    And "<position>" cell should contain <color> "<position>" queen
+    And Appears notification «Wrong turn»
+
+Examples:
+    | color | position | end position |
+    | White | D4       | E6           |
+    | White | D4       | F5           |
+    | White | D4       | F3           |
+    | White | D4       | E2           |
+    | White | D4       | C2           |
+    | White | D4       | B3           |
+    | White | D4       | B5           |
+    | White | D4       | C6           |
+    | Black | D5       | C7           |
+    | Black | D5       | E7           |  
+    | Black | D5       | F6           |  
+    | Black | D5       | F4           |  
+    | Black | D5       | E3           |  
+    | Black | D5       | C3           |  
+    | Black | D5       | B4           |  
+    | Black | D5       | B6           |     
