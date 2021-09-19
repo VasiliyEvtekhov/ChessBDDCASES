@@ -27,18 +27,32 @@ Examples:
     | Black | F6           |
 
 Scenario Outline: knights attack
-    Given <color> knight is located on "E4"
-    And <opponent color> pawn is located on "F6"
+    Given <color> knight is located on "<position>"
+    And <opponent color> pawn is located on "<attack position>"
     And <color> user turn
-    When <color> user moves <color> "E4" knight to "F6"
-    Then <color> "E4" knight should be located on "F6"
-    And <opponent color> "F6" pawn should be not visible
-    And "E4" cell should be empty
+    When <color> user moves <color> "<position>" knight to "<attack position>"
+    Then <color> "<position>" knight should be located on "<attack position>"
+    And <opponent color> "<attack position>" pawn should be not visible
+    And "<position>" cell should be empty
 
 Examples:
-    | color | opponent color |       
-    | White | Black          |
-    | Black | White          |
+    | color | opponent color | position | attack position |      
+    | White | Black          | E5       | F7              |
+    | White | Black          | E5       | G6              |
+    | White | Black          | E5       | G4              |
+    | White | Black          | E5       | F3              |
+    | White | Black          | E5       | D3              |
+    | White | Black          | E5       | C4              |
+    | White | Black          | E5       | C6              |
+    | White | Black          | E5       | D7              |
+    | Black | White          | C4       | D6              |
+    | Black | White          | C4       | E5              |
+    | Black | White          | C4       | E3              |
+    | Black | White          | C4       | D2              |
+    | Black | White          | C4       | B2              |
+    | Black | White          | C4       | A3              |
+    | Black | White          | C4       | A5              |
+    | Black | White          | C4       | B6              |
 
 Scenario Outline: knight cannot move backwards
     Given <color> knight is located on "D5"
