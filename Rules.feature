@@ -47,9 +47,9 @@ Scenario Outline: user can not move opponents figure
     And Appears notification «Wrong turn»
 
 Examples:
-| color | opponents color | position | end position |
-| White | Black           | E7       | E6           |
-| Black | White           | E2       | E3           |
+    | color | opponents color | position | end position |
+    | White | Black           | E7       | E6           |
+    | Black | White           | E2       | E3           |
 
 Scenario Outline: user can not move figures in opponents turn
     Given <opponents color> users turn
@@ -59,9 +59,9 @@ Scenario Outline: user can not move figures in opponents turn
     And Appears notification «Wrong turn»
 
 Examples:
-| opponents color | color | position | end position |
-| White           | Black | G7       | G6           |
-| Black           | White | G2       | G3           |
+    | opponents color | color | position | end position |
+    | White           | Black | G7       | G6           |
+    | Black           | White | G2       | G3           |
 
 Scenario Outline: move transition
     Given <color> users turn 
@@ -69,9 +69,9 @@ Scenario Outline: move transition
     Then move is passed to <opponent color> user
 
 Examples:
-| color | opponent color |
-| White | Black          |
-| Black | White          |
+    | color | opponent color |
+    | White | Black          |
+    | Black | White          |
 
 Scenario Outline: pawn reaches edge of a desk
     Given <color> users turn
@@ -82,23 +82,23 @@ Scenario Outline: pawn reaches edge of a desk
     And on "<end position>" cell appears chosen other <color> figure exept pawn and king
 
 Examples:
-| color | position | end position |
-| White | A7       | A8           |
-| White | B7       | B8           |
-| White | C7       | C8           |
-| White | D7       | D8           |
-| White | E7       | E8           |
-| White | F7       | F8           |
-| White | G7       | G8           |
-| White | H7       | H8           |
-| Black | A2       | A1           |
-| Black | B2       | B1           |
-| Black | C2       | C1           |
-| Black | D2       | D1           |
-| Black | E2       | E1           |
-| Black | F2       | F1           |
-| Black | G2       | G1           |
-| Black | H2       | H1           |
+    | color | position | end position |
+    | White | A7       | A8           |
+    | White | B7       | B8           |
+    | White | C7       | C8           |
+    | White | D7       | D8           |
+    | White | E7       | E8           |
+    | White | F7       | F8           |
+    | White | G7       | G8           |
+    | White | H7       | H8           |
+    | Black | A2       | A1           |
+    | Black | B2       | B1           |
+    | Black | C2       | C1           |
+    | Black | D2       | D1           |
+    | Black | E2       | E1           |
+    | Black | F2       | F1           |
+    | Black | G2       | G1           |
+    | Black | H2       | H1           |
 
 Scenario Outline attack on king
     Given <color> king is located on "<position>"
