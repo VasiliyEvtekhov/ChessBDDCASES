@@ -2,7 +2,7 @@ Feature: queen moves
 
 Scenario Outline: standard queen move
     Given <color> bishop is located on "<position>"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves <color> "<position>" bishop to "<end position>"
     Then <color> > "<position>" bishop should be located on "<end position>"
     And "<position>" cell should be empty
@@ -49,7 +49,7 @@ Examples:
 Scenario Outline: queens attack move
     Given <color> queen is located on "E4"
     And <opponent color> pawn is located on "D5"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves <color> "E4" queen to "D5"
     Then <color> "E4" queen should be located on "D5"
     And <opponent color> "D5" pawn should be not visible
@@ -63,7 +63,7 @@ Examples:
 Scenario Outline: queen can not do standard move if there is in front another figure
     Given <color> queen is located on "D5"
     And <color> knight is located on "<position>"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves <color> "D5" queen to "<end position>" 
     Then <color> "D5" queen should not be located on "<end position>"
     And "D5" cell should contain <color> "D5" queen
