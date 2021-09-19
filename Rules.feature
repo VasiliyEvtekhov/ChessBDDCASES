@@ -89,6 +89,7 @@ Examples:
 
 Scenario Outline: pawn reaches edge of a desk
     Given <color> user turn
+    And "<end position>" cell is empty
     When <color> user makes a <color> "<position>" pawn move to "<end position>"
     Then <color> "<position>" pawn should not be located on "<end position>"
     And <color> "<position>" pawn should be not visible
