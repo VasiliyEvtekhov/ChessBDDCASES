@@ -8,43 +8,43 @@ Scenario Outline: standard queen move
     And "<position>" cell should be empty
 
 Examples:
-| color | position | end position |
-| White | F4       | F5           |
-| White | F4       | F3           |
-| White | F4       | E4           |
-| White | F4       | G4           |
-| White | F4       | F8           |
-| White | F4       | F1           |
-| White | F4       | A4           |
-| White | F4       | H4           |
-| White | F4       | B8           |
-| White | F4       | H6           |
-| White | F4       | H2           |
-| White | F4       | C1           |
-| White | F4       | G5           |
-| White | F4       | G3           |
-| White | F4       | E3           |
-| White | F4       | E5           |
-| White | F4       | D6           |
-| White | F4       | D2           |
-| Black | E6       | G8           |
-| Black | E6       | F7           |
-| Black | E6       | C8           |
-| Black | E6       | D7           |
-| Black | E6       | A2           |
-| Black | E6       | C4           |
-| Black | E6       | D5           |
-| Black | E6       | H3           |
-| Black | E6       | G4           |
-| Black | E6       | F5           |
-| Black | E6       | E5           |
-| Black | E6       | E7           |
-| Black | E6       | F6           |
-| Black | E6       | D6           |
-| Black | E6       | E1           |
-| Black | E6       | E8           |
-| Black | E6       | H6           |
-| Black | E6       | A6           |
+    | color | position | end position |
+    | White | F4       | F5           |
+    | White | F4       | F3           |
+    | White | F4       | E4           |
+    | White | F4       | G4           |
+    | White | F4       | F8           |
+    | White | F4       | F1           |
+    | White | F4       | A4           |
+    | White | F4       | H4           |
+    | White | F4       | B8           |
+    | White | F4       | H6           |
+    | White | F4       | H2           |
+    | White | F4       | C1           |
+    | White | F4       | G5           |
+    | White | F4       | G3           |
+    | White | F4       | E3           |
+    | White | F4       | E5           |
+    | White | F4       | D6           |
+    | White | F4       | D2           |
+    | Black | E6       | G8           |
+    | Black | E6       | F7           |
+    | Black | E6       | C8           |
+    | Black | E6       | D7           |
+    | Black | E6       | A2           |
+    | Black | E6       | C4           |
+    | Black | E6       | D5           |
+    | Black | E6       | H3           |
+    | Black | E6       | G4           |
+    | Black | E6       | F5           |
+    | Black | E6       | E5           |
+    | Black | E6       | E7           |
+    | Black | E6       | F6           |
+    | Black | E6       | D6           |
+    | Black | E6       | E1           |
+    | Black | E6       | E8           |
+    | Black | E6       | H6           |
+    | Black | E6       | A6           |
 
 Scenario Outline: queens attack move
     Given <color> queen is located on "E4"
@@ -56,9 +56,9 @@ Scenario Outline: queens attack move
     And "E4" cell should be empty
 
 Examples:
-| color | opponent color |       
-| White | Black          |
-| Black | White          |
+    | color | opponent color |       
+    | White | Black          |
+    | Black | White          |
 
 Scenario Outline: queen can not do standard move if there is in front another figure
     Given <color> queen is located on "D5"
@@ -70,6 +70,6 @@ Scenario Outline: queen can not do standard move if there is in front another fi
     And Appears notification «Wrong turn»
 
 Examples:
-| color | position | end position |
-| White | D4       | D4           |
-| Black | D7       | D7           |
+    | color | position | end position |
+    | White | D4       | D4           |
+    | Black | D7       | D7           |
