@@ -40,20 +40,6 @@ Examples:
     | White | Black          | E1             | E2       |
     | Black | White          | E8             | E7       | 
 
-Scenario Outline: king cannot move on to holden position
-    Given <color> king is located on "<start position>"
-    And <color> queen is located on "<position>"
-    And <color> user turn
-    When <color> user moves <color> "<start position>" king to "<position>" 
-    Then <color> "<start position>" king should not be located on "<position>"
-    And "<start position>" cell should contain <color> "<start position>" king
-    And Appears notification «Wrong turn»
-
-Examples: 
-    | color | start position | position     |
-    | White | E1             | D1           |
-    | Black | E8             | D8           |
-
 Scenario Outline: king cannot attacks figure with the same color
     Given <color> king is located on "<start position>"
     And <color> pawn is located on "<position>"
