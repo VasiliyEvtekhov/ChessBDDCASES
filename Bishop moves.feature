@@ -9,7 +9,7 @@ Scenario Outline: standard bishop move
     And "<position>" cell should be empty
 
 
-Examples:
+    Examples:
 | color | position | end position |
 | White | F4       | B8           |
 | White | F4       | H6           |
