@@ -69,6 +69,25 @@ Examples:
     | White | E1             | E2       |
     | Black | E8             | E7       |
 
+Scenario Outline: king cannot move on two and more cells
+    Given <color> king is located on "<position>"
+    And <color> user turn
+    When <color> user moves <color> "<position>" king to "<end position>" 
+    Then <color> king should not be located on "<end position>"
+    And "<position>" cell should contain <color> "<position>" king
+    And Appears notification «Wrong turn»
+
+Examples:
+    | color | position | end position |
+    | White | D4       | B4           |
+    | White | D4       | H4           |
+    | White | D4       | D6           |
+    | White | D4       | D1           |
+    | Black | F4       | F6           |
+    | Black | F4       | F2           |
+    | Black | F4       | H4           |
+    | Black | F4       | C4           |
+
 Scenario Outline: castle move
     Given <color> king is located on "<start position>"
     And <color> rook is located on "<position>"
