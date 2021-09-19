@@ -33,18 +33,32 @@ Examples:
     | Black | E6       | F5           |
 
 Scenario Outline: bishops attack
-    Given <color> bishop is located on "E4"
-    And <opponent color> pawn is located on "D5"
+    Given <color> bishop is located on "<position>"
+    And <opponent color> pawn is located on "<attack position>"
     And <color> user turn
-    When <color> user moves <color> "E4" bishop to "D5"
-    Then <color> "E4" bishop should be located on "D5"
-    And <opponent color> "D5" pawn should be not visible
-    And "E4" cell should be empty
+    When <color> user moves <color> "<position>" bishop to "<attack position>"
+    Then <color> "<position>" bishop should be located on "<attack position>"
+    And <opponent color> "<attack position>" pawn should be not visible
+    And "<position>" cell should be empty
 
 Examples:
-    | color | opponent color |        
-    | White | Black          |
-    | Black | White          |
+    | color | opponent color | position | attack position |      
+    | White | Black          | E5       | F6              |
+    | White | Black          | E5       | F4              |
+    | White | Black          | E5       | D4              |
+    | White | Black          | E5       | D6              |
+    | White | Black          | E5       | G7              |
+    | White | Black          | E5       | G3              |
+    | White | Black          | E5       | C3              |
+    | White | Black          | E5       | C7              |
+    | Black | White          | D5       | C6              |
+    | Black | White          | D5       | E6              |
+    | Black | White          | D5       | E4              |
+    | Black | White          | D5       | C4              |
+    | Black | White          | D5       | F3              |
+    | Black | White          | D5       | B3              |
+    | Black | White          | D5       | C7              |
+    | Black | White          | D5       | F7              |
 
 Scenario Outline: bishop cannot move backwards
     Given <color> bishop is located on "D5"
