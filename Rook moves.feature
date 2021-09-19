@@ -71,7 +71,7 @@ Scenario Outline: rook cannot move in incorret directions
     And Appears notification «Wrong turn»
 
 Examples:
-    | color | position |end position |
+    | color | position | end position |
     | White | E4       | F5          |
     | White | E4       | F3          |
     | White | E4       | D3          |
