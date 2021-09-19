@@ -2,7 +2,7 @@ Feature: bishop moves
 
 Scenario Outline: standard bishop move
     Given <color> bishop is located on "<position>"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves <color> "<position>" bishop to "<end position>"
     Then <color> "<position>" bishop should be located on "<end position>"
     And "<position>" cell should be empty
@@ -33,7 +33,7 @@ Examples:
 Scenario Outline: bishops attack
     Given <color> bishop is located on "E4"
     And <opponent color> pawn is located on "D5"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves <color> "E4" bishop to "D5"
     Then <color> "E4" bishop should be located on "D5"
     And <opponent color> "D5" pawn should be not visible
@@ -46,7 +46,7 @@ Examples:
 
 Scenario Outline: bishop can not move backwards
     Given <color> bishop is located on "D5"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves <color> "D5" bishop to "<end position>" 
     Then <color> "D5" bishop should not be located on "<end position>"
     And "D5" cell should contain <color> "D5" bishop
@@ -60,7 +60,7 @@ Examples:
 Scenario Outline: bishop can not move through figure with the same color
     Given <color> bishop is located on "<position>"
     And <color> pawn is located on "<position 2>"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves <color> "<position>" bishop to "<end position>" 
     Then <color> bishop should not be located on "<end position>"
     And "<position>" cell should contain <color> "<position>" bishop
