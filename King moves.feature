@@ -105,3 +105,75 @@ Examples:
     | White | E1             | H1       | G1           | F1         |
     | Black | E8             | A8       | C8           | D8         |
     | Black | E8             | H8       | G8           | F8         |
+
+Scenario Outline: user cannot do a castle move if between king and rook color figure
+    Given <color> king is located on "<start position>"
+    And <color> rook is located on "<position 2>"
+    And <color> queen is located on "<position>"
+    And <color> user turn
+    When <color> user initiate a castle move
+    Then <color> "<start position>" king should not be located on "<end position>"
+    And <color> "<position 2>" rook should not be located on "<position 3>"
+    And "<start position>" cell should contain <color> "<start position>" king
+    And "<position 2>" cell should contain <color> "<position>" rook
+    And "<position>" cell should contain <color> "<position>" queen
+    And Appears notification «Wrong turn»
+
+Examples:
+    | color | start position | position | end position | position 2 | position 3 |
+    | White | E1             | D1       | C1           | H1         | D1         |
+    | White | E1             | B1       | C1           | H1         | D1         |
+    | White | E1             | C1       | C1           | H1         | D1         |
+    | White | E1             | F1       | G1           | A1         | F1         |
+    | White | E1             | G1       | G1           | A1         | F1         |
+    | Black | E8             | D8       | C8           | H8         | D8         |
+    | Black | E8             | B8       | C8           | H8         | D8         |
+    | Black | E8             | C8       | C8           | H8         | D8         |
+    | Black | E8             | F8       | G8           | A8         | F8         |
+    | Black | E8             | G8       | G8           | A8         | F8         |
+
+Scenario Outline: user cannot do a castle move if between king and rook opponent color figure
+    Given <color> king is located on "<start position>"
+    And <color> rook is located on "<position 2>"
+    And <opponent color> bishop is located on "<position>"
+    And <color> user turn
+    When <color> user initiate a castle move
+    Then <color> "<start position>" king should not be located on "<end position>"
+    And <color> "<position 2>" rook should not be located on "<position 3>"
+    And "<start position>" cell should contain <color> "<start position>" king
+    And "<position 2>" cell should contain <color> "<position>" rook
+    And "<position>" cell should contain <opponent color> "<position>" bishop
+    And Appears notification «Wrong turn»
+
+Examples:
+    | color | opponent color | start position | position | end position | position 2 | position 3 |
+    | White | Black          | E1             | D1       | C1           | H1         | D1         |
+    | White | Black          | E1             | B1       | C1           | H1         | D1         |
+    | White | Black          | E1             | C1       | C1           | H1         | D1         |
+    | White | Black          | E1             | F1       | G1           | A1         | F1         |
+    | White | Black          | E1             | G1       | G1           | A1         | F1         |
+    | Black | White          | E8             | D8       | C8           | H8         | D8         |
+    | Black | White          | E8             | B8       | C8           | H8         | D8         |
+    | Black | White          | E8             | C8       | C8           | H8         | D8         |
+    | Black | White          | E8             | F8       | G8           | A8         | F8         |
+    | Black | White          | E8             | G8       | G8           | A8         | F8         |
+
+    Scenario Outline: user cannot do a castle move if king is under attack
+    Given <color> king is located on "<start position>"
+    And <color> rook is located on "<position 2>"
+    And <opponent color> queen is located on "<position>"
+    And <color> user turn
+    When <color> user initiate a castle move
+    Then <color> "<start position>" king should not be located on "<end position>"
+    And <color> "<position 2>" rook should not be located on "<position 3>"
+    And "<start position>" cell should contain <color> "<start position>" king
+    And "<position 2>" cell should contain <color> "<position>" rook
+    And "<position>" cell should contain <opponent color> "<position>" queen
+    And Appears notification «Wrong turn»
+
+Examples:
+    | color | opponent color | start position | position | end position | position 2 | position 3 |
+    | White | Black          | E1             | E4       | C1           | H1         | D1         |
+    | White | Black          | E1             | E4       | G1           | A1         | F1         |
+    | Black | White          | E8             | E5       | C8           | H8         | D8         |
+    | Black | White          | E8             | E5       | G8           | A8         | F8         |
