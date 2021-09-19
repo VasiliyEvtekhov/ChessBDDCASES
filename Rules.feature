@@ -1,8 +1,9 @@
+Feature: game rules
+
 Scenario: user starts a new game with computer  
     When user clicks on button «Start a new game with computer»
     Then board is visible
     And the following figures are visible
-
 
 | Name of figure | Color of figure| Initial position on the board |
 | Rook	         | White	      | A1                            |
@@ -38,7 +39,6 @@ Scenario: user starts a new game with computer
 | Pawn	         | Black	      | G7                            |
 | Pawn	         | Black	      | H7                            |
 
-
 Scenario Outline: user can not move opponents figure
     Given <color> users turn
     When <color> user moves <opponents color> "<position>" figure to "<end position>"
@@ -46,12 +46,10 @@ Scenario Outline: user can not move opponents figure
     And "<position>" cell should contain <opponent color> "<position>" figure
     And Appears notification «Wrong turn»
 
-
 Examples:
 | color | opponents color | position | end position |
 | White | Black           | E7       | E6           |
 | Black | White           | E2       | E3           |
-
 
 Scenario Outline: user can not move figures in opponents turn
     Given <opponents color> users turn
@@ -60,24 +58,20 @@ Scenario Outline: user can not move figures in opponents turn
     And "<position>" cell should contain <color> "<position>" pawn
     And Appears notification «Wrong turn»
 
-
 Examples:
 | opponents color | color | position | end position |
 | White           | Black | G7       | G6           |
 | Black           | White | G2       | G3           |
-
 
 Scenario Outline: move transition
     Given <color> users turn 
     When <color> user makes a move
     Then move is passed to <opponent color> user
 
-
 Examples:
 | color | opponent color |
 | White | Black          |
 | Black | White          |
-
 
 Scenario Outline: pawn reaches edge of a desk
     Given <color> users turn
@@ -86,7 +80,6 @@ Scenario Outline: pawn reaches edge of a desk
     And <color> "<position>" pawn should be not visible
     And "<position>" cell should be empty
     And on "<end position>" cell appears chosen other <color> figure exept pawn and king
-
 
 Examples:
 | color | position | end position |
@@ -106,7 +99,6 @@ Examples:
 | Black | F2       | F1           |
 | Black | G2       | G1           |
 | Black | H2       | H1           |
-
 
 Scenario Outline attack on king
     Given <color> king is located on "<position>"
