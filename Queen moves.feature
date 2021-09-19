@@ -47,18 +47,52 @@ Examples:
     | Black | E6       | A6           |
 
 Scenario Outline: queens attack move
-    Given <color> queen is located on "E4"
-    And <opponent color> pawn is located on "D5"
+    Given <color> queen is located on "<position>"
+    And <opponent color> pawn is located on "<attack position>"
     And <color> user turn
-    When <color> user moves <color> "E4" queen to "D5"
-    Then <color> "E4" queen should be located on "D5"
-    And <opponent color> "D5" pawn should be not visible
-    And "E4" cell should be empty
+    When <color> user moves <color> "<position>" queen to "<attack position>"
+    Then <color> "<position>" queen should be located on "<attack position>"
+    And <opponent color> "<attack position>" pawn should be not visible
+    And "<position>" cell should be empty
 
 Examples:
-    | color | opponent color |       
-    | White | Black          |
-    | Black | White          |
+    | color | opponent color | position | attack position |      
+    | White | Black          | F4       | F5              |
+    | White | Black          | F4       | F3              |
+    | White | Black          | F4       | E4              |
+    | White | Black          | F4       | G4              |
+    | White | Black          | F4       | F8              |
+    | White | Black          | F4       | F1              |
+    | White | Black          | F4       | A4              |
+    | White | Black          | F4       | H4              |
+    | White | Black          | F4       | B8              |
+    | White | Black          | F4       | H6              |
+    | White | Black          | F4       | H2              |
+    | White | Black          | F4       | C1              |
+    | White | Black          | F4       | G5              |
+    | White | Black          | F4       | G3              |
+    | White | Black          | F4       | E3              |
+    | White | Black          | F4       | E5              |
+    | White | Black          | F4       | D6              |
+    | White | Black          | F4       | D2              |
+    | Black | White          | E6       | G8              |
+    | Black | White          | E6       | F7              |
+    | Black | White          | E6       | C8              |
+    | Black | White          | E6       | D7              |
+    | Black | White          | E6       | A2              |
+    | Black | White          | E6       | C4              |
+    | Black | White          | E6       | D5              |
+    | Black | White          | E6       | H3              |
+    | Black | White          | E6       | G4              |
+    | Black | White          | E6       | F5              |
+    | Black | White          | E6       | E5              |
+    | Black | White          | E6       | E7              |
+    | Black | White          | E6       | F6              |
+    | Black | White          | E6       | D6              |
+    | Black | White          | E6       | E1              |
+    | Black | White          | E6       | E8              |
+    | Black | White          | E6       | H6              |
+    | Black | White          | E6       | A6              |
 
 Scenario Outline: queen cannot do standard move if there is in front another figure
     Given <color> queen is located on "D5"
