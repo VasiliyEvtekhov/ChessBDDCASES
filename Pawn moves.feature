@@ -2,7 +2,7 @@ Feature: Pawn moves
 
 Scenario Outline: standard pawn move
     Given <color> pawn is located on "D4"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves "D4" <color> pawn to "<position>" 
     Then "D4" <color> pawn should be located on "<position>"
 
@@ -12,7 +12,7 @@ Examples:
     | Black | D3       |
 
 Scenario Outline: extended pawn move
-    Given <color> users turn
+    Given <color> user turn
     When <color> user moves <color> "<start position>" pawn to the "<end position>"
     Then <color> pawn should be located on the "<position>"
     And "<start position>" cell should be empty
@@ -25,7 +25,7 @@ Examples:
 Scenario Outline: pawns attack
     Given <color> pawn is located on position "F4" 
     And <opponent color> pawn is located on "<position>"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves "F4" <color> pawn to "<position>"
     Then "F4" <color> pawn should be located on "<position>" 
     And <opponent color> "<position>" pawn should be not visible
@@ -40,7 +40,7 @@ Examples:
 
 Scenario Outline: pawn can not move backwards
     Given <color> pawn is located on "D4"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves "D4" <color> pawn to "<position>" 
     Then cell with "<position>" should be empty
     And "D4" cell should contain <color> "D4" pawn
@@ -54,7 +54,7 @@ Examples:
 Scenario Outline: pawn can not do extended move if there is in front another figure
     Given <color> pawn is located on "<start position>"
     And <color> knight is located on "<position 1>"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves <color> pawn to "<position 2>"
     Then <color> pawn should not be located on "<position 2>" 
     And "<start position>" cell should contain <color> "<start position>" pawn
@@ -68,7 +68,7 @@ Examples:
 Scenario Outline: pawn can not attack figure with the same color
     Given <color> pawn is located on position "F4" 
     And <color> pawn is located on "<position>"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves "F4" <color> pawn to "<position>"
     Then "F4" <color> pawn should not be located on "<position>" 
     And <color> "<position>" pawn should be visible
@@ -85,7 +85,7 @@ Examples:
 Scenario Outline: pawn can not attack opponents figure from behind 
     Given <color> pawn is located on position "<position>" 
     And <opponent color> pawn is located on "<position 2>"
-    And <color> users turn
+    And <color> user turn
     When <color> user moves "<position>" <color> pawn to "<position 2>"
     Then "<position>" <color> pawn should not be located on "<position 2>" 
     And <opponent color> "<position 2>" pawn should be visible
