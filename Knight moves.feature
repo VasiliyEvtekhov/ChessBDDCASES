@@ -54,18 +54,48 @@ Examples:
     | Black | White          | C4       | A5              |
     | Black | White          | C4       | B6              |
 
-Scenario Outline: knight cannot move backwards
-    Given <color> knight is located on "D5"
+Scenario Outline: knight cannot move in incorret directions
+    Given <color> knight is located on "<position>"
     And <color> user turn
-    When <color> user moves <color> "D5" knight to "<end position>" 
-    Then <color> "D5" knight should not be located on "<end position>"
-    And "D5" cell should contain <color> "D5" knight
+    When <color> user moves <color> "<position>" knight to "<end position>" 
+    Then <color> "<position>" knight should not be located on "<end position>"
+    And "<position>" cell should contain <color> "<position>" knight
     And Appears notification «Wrong turn»
 
 Examples:
-    | color | end position |
-    | White | D4           |
-    | Black | D6           |
+    | color | position | end position |
+    | White | D4       | D5           |
+    | White | D4       | E5           |
+    | White | D4       | E4           |
+    | White | D4       | E3           |
+    | White | D4       | D3           |
+    | White | D4       | C3           |
+    | White | D4       | C4           |
+    | White | D4       | C5           |
+    | White | D4       | D8           |
+    | White | D4       | H8           |
+    | White | D4       | H4           |
+    | White | D4       | G1           |
+    | White | D4       | D1           |
+    | White | D4       | A1           |
+    | White | D4       | A4           |
+    | White | D4       | A7           |
+    | Black | F5       | F6           |
+    | Black | F5       | G6           |
+    | Black | F5       | G5           |
+    | Black | F5       | G4           |
+    | Black | F5       | F4           |
+    | Black | F5       | E4           |
+    | Black | F5       | E5           |
+    | Black | F5       | E6           |
+    | Black | F5       | F8           |
+    | Black | F5       | H7           |
+    | Black | F5       | H5           |
+    | Black | F5       | H3           |
+    | Black | F5       | F1           |
+    | Black | F5       | B1           |
+    | Black | F5       | A5           |
+    | Black | F5       | C8           |
 
 Scenario Outline: knight cannot attack same color
     Given <color> knight is located on "<position>"
