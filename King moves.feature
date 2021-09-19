@@ -1,4 +1,4 @@
-Feature: king moves
+Feature: King moves
 
 Scenario Outline: standard king move
     Given <color> king is located on "D4"

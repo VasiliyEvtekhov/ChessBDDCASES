@@ -1,4 +1,4 @@
-Feature: game rules
+Feature: Game rules
 
 Scenario: user starts a new game with computer  
     When user clicks on button «Start a new game with computer»

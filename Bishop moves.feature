@@ -1,4 +1,4 @@
-Feature: bishop moves
+Feature: Bishop moves
 
 #In examples i am have used the following techniques
 

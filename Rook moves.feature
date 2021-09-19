@@ -1,4 +1,4 @@
-Feature: rook moves
+Feature: Rook moves
 
 Scenario Outline: standard rook move
     Given <color> rook is located on "E5"

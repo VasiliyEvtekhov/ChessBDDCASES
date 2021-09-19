@@ -1,4 +1,4 @@
-Feature: queen moves
+Feature: Queen moves
 
 Scenario Outline: standard queen move
     Given <color> bishop is located on "<position>"

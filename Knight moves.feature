@@ -1,4 +1,4 @@
-Feature: knights moves
+Feature: Knights moves
 
 Scenario Outline: standard knight move
     Given <color> knight is located on "E4"
