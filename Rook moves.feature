@@ -8,31 +8,31 @@ Scenario Outline: standard rook move
     And "E5" cell should be empty
 
 Examples:
-| color | end position|
-| White | A5          |
-| White | H5          |
-| White | F5          |
-| White | E4          |
-| White | G5          |
-| White | C5          |
-| White | E7          |
-| White | E3          |
-| White | E6          |
-| White | D5          |
-| White | E8          |
-| White | E1          | 
-| Black | A5          |
-| Black | H5          |
-| Black | F5          |
-| Black | E4          |
-| Black | E6          |
-| Black | D5          |
-| Black | E8          |
-| Black | E1          | 
-| Black | G5          |
-| Black | C5          |
-| Black | E7          |
-| Black | E3          |
+    | color | end position|
+    | White | A5          |
+    | White | H5          |
+    | White | F5          |
+    | White | E4          |
+    | White | G5          |
+    | White | C5          |
+    | White | E7          |
+    | White | E3          |
+    | White | E6          |
+    | White | D5          |
+    | White | E8          |
+    | White | E1          | 
+    | Black | A5          |
+    | Black | H5          |
+    | Black | F5          |
+    | Black | E4          |
+    | Black | E6          |
+    | Black | D5          |
+    | Black | E8          |
+    | Black | E1          | 
+    | Black | G5          |
+    | Black | C5          |
+    | Black | E7          |
+    | Black | E3          |
 
 Scenario Outline: rooks attack                               
     Given <color> rook is located on "E5"
@@ -44,9 +44,9 @@ Scenario Outline: rooks attack
     And "E5" cell should be empty
 
 Examples:
-| color | opponent color |
-| White | Black          |
-| Black | White          |
+    | color | opponent color |
+    | White | Black          |
+    | Black | White          |
 
 Scenario Outline: rook can not move diagonale
     Given <color> rook is located on "D5"
@@ -57,9 +57,9 @@ Scenario Outline: rook can not move diagonale
     And Appears notification «Wrong turn»
 
 Examples:
-| color | end position |
-| White | E4           |
-| Black | E6           |
+    | color | end position |
+    | White | E4           |
+    | Black | E6           |
 
 Scenario Outline: rook can not move through figure with the same color
     Given <color> rook is located on "E4"
@@ -71,8 +71,8 @@ Scenario Outline: rook can not move through figure with the same color
     And Appears notification «Wrong turn»
 
 Examples:
-| color | end position |
-| White | A4           |
-| White | B4           |
-| Black | A4           |
-| Black | B4           |
+    | color | end position |
+    | White | A4           |
+    | White | B4           |
+    | Black | A4           |
+    | Black | B4           |
