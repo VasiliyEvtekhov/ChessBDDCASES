@@ -40,7 +40,7 @@ Examples:
     | White | Black          | E1             | E2       |
     | Black | White          | E8             | E7       | 
 
-Scenario Outline: king can not move on to holden position
+Scenario Outline: king cannot move on to holden position
     Given <color> king is located on "<start position>"
     And <color> queen is located on "<position>"
     And <color> user turn
@@ -54,7 +54,7 @@ Examples:
     | White | E1             | D1           |
     | Black | E8             | D8           |
 
-Scenario Outline: king can not attacks figure with the same color
+Scenario Outline: king cannot attacks figure with the same color
     Given <color> king is located on "<start position>"
     And <color> pawn is located on "<position>"
     And <color> user turn

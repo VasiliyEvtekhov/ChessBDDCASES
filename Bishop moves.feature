@@ -46,7 +46,7 @@ Examples:
     | White | Black          |
     | Black | White          |
 
-Scenario Outline: bishop can not move backwards
+Scenario Outline: bishop cannot move backwards
     Given <color> bishop is located on "D5"
     And <color> user turn
     When <color> user moves <color> "D5" bishop to "<end position>" 
@@ -59,7 +59,7 @@ Examples:
     | White | D4           |
     | Black | D7           |
 
-Scenario Outline: bishop can not move through figure with the same color
+Scenario Outline: bishop cannot move through figure with the same color
     Given <color> bishop is located on "<position>"
     And <color> pawn is located on "<position 2>"
     And <color> user turn

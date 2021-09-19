@@ -40,7 +40,7 @@ Examples:
     | White | Black          |
     | Black | White          |
 
-Scenario Outline: knight can not move backwards
+Scenario Outline: knight cannot move backwards
     Given <color> knight is located on "D5"
     And <color> user turn
     When <color> user moves <color> "D5" knight to "<end position>" 
@@ -53,7 +53,7 @@ Examples:
     | White | D4           |
     | Black | D6           |
 
-Scenario Outline: knight can not move on holden position
+Scenario Outline: knight cannot move on holden position
     Given <color> knight is located on "<position>"
     And <color> pawn is located on "<end position>"
     And <color> user turn

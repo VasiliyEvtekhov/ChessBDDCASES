@@ -48,7 +48,7 @@ Examples:
     | White | Black          |
     | Black | White          |
 
-Scenario Outline: rook can not move diagonale
+Scenario Outline: rook cannot move diagonale
     Given <color> rook is located on "D5"
     And <color> user turn
     When <color> user moves <color> "D5" rook to "<end position>" 
@@ -61,7 +61,7 @@ Examples:
     | White | E4           |
     | Black | E6           |
 
-Scenario Outline: rook can not move through figure with the same color
+Scenario Outline: rook cannot move through figure with the same color
     Given <color> rook is located on "E4"
     And <color> bishop is located on "C4"
     And <color> user turn

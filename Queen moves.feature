@@ -60,7 +60,7 @@ Examples:
     | White | Black          |
     | Black | White          |
 
-Scenario Outline: queen can not do standard move if there is in front another figure
+Scenario Outline: queen cannot do standard move if there is in front another figure
     Given <color> queen is located on "D5"
     And <color> knight is located on "<position>"
     And <color> user turn

@@ -38,7 +38,7 @@ Examples:
     | White | Black          | G5       |
     | Black | White          | G3       |
 
-Scenario Outline: pawn can not move backwards
+Scenario Outline: pawn cannot move backwards
     Given <color> pawn is located on "D4"
     And <color> user turn
     When <color> user moves "D4" <color> pawn to "<position>" 
@@ -51,7 +51,7 @@ Examples:
     | White | D3       |
     | Black | D5       |
 
-Scenario Outline: pawn can not do extended move if there is in front another figure
+Scenario Outline: pawn cannot do extended move if there is in front another figure
     Given <color> pawn is located on "<start position>"
     And <color> knight is located on "<position 1>"
     And <color> user turn
@@ -65,7 +65,7 @@ Examples:
     | White | C2             | C3         | C4         |
     | Black | C7             | C6         | C5         |
 
-Scenario Outline: pawn can not attack figure with the same color
+Scenario Outline: pawn cannot attack figure with the same color
     Given <color> pawn is located on position "F4" 
     And <color> pawn is located on "<position>"
     And <color> user turn
@@ -82,7 +82,7 @@ Examples:
     | White | G5       |
     | Black | G3       |
 
-Scenario Outline: pawn can not attack opponents figure from behind 
+Scenario Outline: pawn cannot attack opponents figure from behind 
     Given <color> pawn is located on position "<position>" 
     And <opponent color> pawn is located on "<position 2>"
     And <color> user turn

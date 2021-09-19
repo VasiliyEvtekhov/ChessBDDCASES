@@ -39,7 +39,7 @@ Scenario: user starts a new game with computer
 | Pawn	         | Black	      | G7                            |
 | Pawn	         | Black	      | H7                            |
 
-Scenario Outline: user can not move opponents figure
+Scenario Outline: user cannot move opponents figure
     Given <color> user turn
     When <color> user moves <opponents color> "<position>" figure to "<end position>"
     Then <opponents color> "<position>" figure should not be shifted
@@ -51,7 +51,7 @@ Examples:
     | White | Black           | E7       | E6           |
     | Black | White           | E2       | E3           |
 
-Scenario Outline: user can not move figures in opponents turn
+Scenario Outline: user cannot move figures in opponents turn
     Given <opponents color> user turn
     When <color> user moves <color> "<position>" pawn to "<end position>"
     Then <color> "<position>" pawn should not be shifted
