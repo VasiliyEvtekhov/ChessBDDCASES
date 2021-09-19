@@ -59,9 +59,9 @@ Examples:
     | White | D4           |
     | Black | D7           |
 
-Scenario Outline: bishop cannot move through figure with the same color
+Scenario Outline: bishop cannot move through other figures
     Given <color> bishop is located on "<position>"
-    And <color> pawn is located on "<position 2>"
+    And <color to go through> pawn is located on "<position 2>"
     And <color> user turn
     When <color> user moves <color> "<position>" bishop to "<end position>" 
     Then <color> bishop should not be located on "<end position>"
@@ -69,8 +69,8 @@ Scenario Outline: bishop cannot move through figure with the same color
     And Appears notification «Wrong turn»
 
 Examples:
-    | color | position | position 2 | end position |
-    | White | F4       | E3         | D2           |
-    | White | F4       | E3         | C1           |
-    | Black | F5       | E6         | D7           |
-    | Black | F5       | E6         | C8           |
+    | color | color to go through | position | position 2 | end position |
+    | White | White               | F4       | E3         | D2           |
+    | White | White               | F4       | E3         | C1           |
+    | Black | Black               | F5       | E6         | D7           |
+    | Black | Black               | F5       | E6         | C8           |
