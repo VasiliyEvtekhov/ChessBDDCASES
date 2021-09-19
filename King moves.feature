@@ -27,18 +27,32 @@ Examples:
     | Black | E4           |
 
 Scenario Outline: kings attack
-    Given <color> king is located on "<start position>"
-    And <opponent color> pawn is located on "<position>"
+    Given <color> king is located on "<position>"
+    And <opponent color> pawn is located on "<attack position>"
     And <color> user turn
-    When <color> user moves <color> "<start position>" king to "<position>" 
-    Then <color> king should be located on "<position>"
-    And <opponent color> "<position>" pawn should be not visible
-    And "<start position>" cell should be empty
+    When <color> user moves <color> "<position>" king to "<attack position>" 
+    Then <color> king should be located on "<attack position>"
+    And <opponent color> "<attack position>" pawn should be not visible
+    And "<position>" cell should be empty
 
 Examples:
-    | color | opponent color | start position | position |
-    | White | Black          | E1             | E2       |
-    | Black | White          | E8             | E7       | 
+    | color | opponent color | position       | attack position |
+    | White | Black          | E4             | D5              |
+    | White | Black          | E4             | E5              |
+    | White | Black          | E4             | F5              |
+    | White | Black          | E4             | D4              |
+    | White | Black          | E4             | F4              |
+    | White | Black          | E4             | D3              |
+    | White | Black          | E4             | E3              |
+    | White | Black          | E4             | F3              |
+    | Black | White          | E5             | D4              |
+    | Black | White          | E5             | E4              |
+    | Black | White          | E5             | F4              |
+    | Black | White          | E5             | D5              |
+    | Black | White          | E5             | F5              |
+    | Black | White          | E5             | D6              |
+    | Black | White          | E5             | E6              |
+    | Black | White          | E5             | F6              | 
 
 Scenario Outline: king cannot attacks figure with the same color
     Given <color> king is located on "<start position>"
