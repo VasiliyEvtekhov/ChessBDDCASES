@@ -60,18 +60,32 @@ Examples:
     | Black | White          | D5       | C7              |
     | Black | White          | D5       | F7              |
 
-Scenario Outline: bishop cannot move backwards
-    Given <color> bishop is located on "D5"
+Scenario Outline: bishop cannot move in incorret directions
+    Given <color> bishop is located on "<position>"
     And <color> user turn
-    When <color> user moves <color> "D5" bishop to "<end position>" 
-    Then <color> "D5" bishop should not be located on "<end position>"
-    And "D5" cell should contain <color> "D5" bishop
+    When <color> user moves <color> "<position>" bishop to "<end position>" 
+    Then <color> "<position>" bishop should not be located on "<end position>"
+    And "<position>" cell should contain <color> "<position>" bishop
     And Appears notification «Wrong turn»
 
 Examples:
-    | color | end position |
-    | White | D4           |
-    | Black | D7           |
+    | color | position | end position |
+    | White | C4       | C5           |
+    | White | C4       | C3           |
+    | White | C4       | D4           |
+    | White | C4       | B4           |
+    | White | C4       | A4           |
+    | White | C4       | C8           |
+    | White | C4       | C1           |
+    | White | C4       | H4           |
+    | Black | E5       | E6           |
+    | Black | E5       | E4           |
+    | Black | E5       | F5           |
+    | Black | E5       | D5           |
+    | Black | E5       | A5           |
+    | Black | E5       | H5           |
+    | Black | E5       | E1           |
+    | Black | E5       | E8           |
 
 Scenario Outline: bishop cannot move through other figures
     Given <color> bishop is located on "<position>"
