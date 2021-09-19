@@ -94,7 +94,8 @@ Scenario Outline: pawn reaches edge of a desk
     Then <color> "<position>" pawn should not be located on "<end position>"
     And <color> "<position>" pawn should be not visible
     And "<position>" cell should be empty
-    And on "<end position>" cell appears chosen other <color> figure exept pawn and king
+    And for <color> user appears a pop-up window where user can choose a figure exept king and pawn
+    And on "<end position>" cell appears chosen figure
 
 Examples:
     | color | position | end position |
