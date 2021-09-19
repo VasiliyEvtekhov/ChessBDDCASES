@@ -8,23 +8,23 @@ Scenario Outline: standard knight move
     And "E4" cell should be empty
 
 Examples:
-| color | end position |
-| White | F6           |
-| White | G5           |
-| White | G3           |
-| White | F2           |
-| White | D2           |
-| White | C3           |
-| White | C5           |
-| White | D6           |             
-| Black | G5           |
-| Black | G3           |
-| Black | F2           |
-| Black | D2           |
-| Black | C3           |
-| Black | C5           |
-| Black | D6           |
-| Black | F6           |
+    | color | end position |
+    | White | F6           |
+    | White | G5           |
+    | White | G3           |
+    | White | F2           |
+    | White | D2           |
+    | White | C3           |
+    | White | C5           |
+    | White | D6           |             
+    | Black | G5           |
+    | Black | G3           |
+    | Black | F2           |
+    | Black | D2           |
+    | Black | C3           |
+    | Black | C5           |
+    | Black | D6           |
+    | Black | F6           |
 
 Scenario Outline: knights attack
     Given <color> knight is located on "E4"
@@ -36,9 +36,9 @@ Scenario Outline: knights attack
     And "E4" cell should be empty
 
 Examples:
-| color | opponent color |       
-| White | Black          |
-| Black | White          |
+    | color | opponent color |       
+    | White | Black          |
+    | Black | White          |
 
 Scenario Outline: knight can not move backwards
     Given <color> knight is located on "D5"
@@ -49,9 +49,9 @@ Scenario Outline: knight can not move backwards
     And Appears notification «Wrong turn»
 
 Examples:
-| color | end position |
-| White | D4           |
-| Black | D6           |
+    | color | end position |
+    | White | D4           |
+    | Black | D6           |
 
 Scenario Outline: knight can not move on holden position
     Given <color> knight is located on "<position>"
@@ -63,8 +63,8 @@ Scenario Outline: knight can not move on holden position
     And Appears notification «Wrong turn»
 
 Examples:
-| color | position | end position |
-| White | D4       | C2           |
-| White | D4       | E2           |
-| Black | C6       | A7           |
-| Black | C6       | E7           |
+    | color | position | end position |
+    | White | D4       | C2           |
+    | White | D4       | E2           |
+    | Black | C6       | A7           |
+    | Black | C6       | E7           |
