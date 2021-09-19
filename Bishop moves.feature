@@ -1,5 +1,7 @@
 Feature: bishop moves
 
+#In examples i am have used the following techniques
+
 Scenario Outline: standard bishop move
     Given <color> bishop is located on "<position>"
     And <color> user turn
