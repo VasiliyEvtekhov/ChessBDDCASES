@@ -46,7 +46,7 @@ Examples:
     | Black | E6       | H6           |
     | Black | E6       | A6           |
 
-Scenario Outline: queens attack move
+Scenario Outline: queens attack
     Given <color> queen is located on "<position>"
     And <opponent color> pawn is located on "<attack position>"
     And <color> user turn
@@ -94,16 +94,46 @@ Examples:
     | Black | White          | E6       | H6              |
     | Black | White          | E6       | A6              |
 
-Scenario Outline: queen cannot do standard move if there is in front another figure
-    Given <color> queen is located on "D5"
-    And <color> knight is located on "<position>"
+Scenario Outline: queen cannot attacks figure with the same color
+    Given <color> queen is located on "<start position>"
+    And <color> knight is located on "<end position>"
     And <color> user turn
-    When <color> user moves <color> "D5" queen to "<end position>" 
-    Then <color> "D5" queen should not be located on "<end position>"
-    And "D5" cell should contain <color> "D5" queen
+    When <color> user moves <color> "<start position>" queen to "<end position>" 
+    Then <color> "<start position>" queen should not be located on "<end position>"
+    And "<start position>" cell should contain <color> "<start position>" queen
     And Appears notification «Wrong turn»
 
 Examples:
-    | color | position | end position |
-    | White | D4       | D4           |
-    | Black | D7       | D7           |
+    | color | start position | end position |
+    | White | F4             | E5           |
+    | White | F4             | F5           |
+    | White | F4             | G5           |
+    | White | F4             | E4           |
+    | White | F4             | G4           |
+    | White | F4             | E3           |
+    | White | F4             | F3           |
+    | White | F4             | G3           |
+    | White | F4             | H4           |
+    | White | F4             | H2           |
+    | White | F4             | F1           |
+    | White | F4             | C1           |
+    | White | F4             | A4           |
+    | White | F4             | B2           |
+    | White | F4             | F8           |
+    | White | F4             | H6           |
+    | Black | E6             | D7           |
+    | Black | E6             | E7           |
+    | Black | E6             | F7           |
+    | Black | E6             | D6           |
+    | Black | E6             | F6           |
+    | Black | E6             | D5           |
+    | Black | E6             | E5           |
+    | Black | E6             | F5           |
+    | Black | E6             | C8           |
+    | Black | E6             | E8           |
+    | Black | E6             | G8           |
+    | Black | E6             | H6           |
+    | Black | E6             | H3           |
+    | Black | E6             | E1           |
+    | Black | E6             | A2           |
+    | Black | E6             | A6           |
