@@ -23,20 +23,20 @@ Examples:
     | Black | E7             | E5           | 
 
 Scenario Outline: pawns attack
-    Given <color> pawn is located on position "F4" 
-    And <opponent color> pawn is located on "<position>"
+    Given <color> pawn is located on "<position>"
+    And <opponent color> pawn is located on "<attack position>"
     And <color> user turn
-    When <color> user moves "F4" <color> pawn to "<position>"
-    Then "F4" <color> pawn should be located on "<position>" 
-    And <opponent color> "<position>" pawn should be not visible
-    And "F4" cell should be empty
+    When <color> user moves <color> "<position>" pawn to "<attack position>"
+    Then <color> "<position>" pawn should be located on "<attack position>"
+    And <opponent color> "<attack position>" pawn should be not visible
+    And "<position>" cell should be empty
 
 Examples:
-    | color | opponent color | position |
-    | White | Black          | E5       |
-    | Black | White          | E3       |
-    | White | Black          | G5       |
-    | Black | White          | G3       |
+    | color | opponent color | positon | attack position |
+    | White | Black          | E4      | D5              |
+    | White | Black          | E4      | F5              |
+    | Black | White          | E5      | D4              |
+    | Black | White          | E5      | F4              |
 
 Scenario Outline: pawn cannot move backwards
     Given <color> pawn is located on "D4"
